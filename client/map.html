@@ -1,21 +1,21 @@
-﻿<!DOCTYPE html>  
+<!DOCTYPE html>
 
 <script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
 
-<title>Exemple de carte glissante</title>
-<link rel="stylesheet" type="text/css" href="leaflet.css" /> 
+<title>Map of North-America</title>
+<link rel="stylesheet" type="text/css" href="leaflet.css" />
 <link rel="stylesheet" type="text/css" href="style.css"/>
 
 <meta charset="utf-8">
-  
+
 <!-- Récupération de la liste des lieux insolites au chargement de la page -->
 <body onload="load_data();">
 
-  <h1>Mes lieux insolites à la Croix-Rousse</h1>
+  <h1>Map of North-America</h1>
   <div>
 
   <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
-  <div id="map" style="margin-bottom:1.33em"></div>  
+  <div id="map" style="margin-bottom:1.33em"></div>
 
   <!-- Zone pour l'affichage dynamique des descriptions -->
   <p id="description"></p>
@@ -28,7 +28,7 @@
 
 // Création d'une carte dans la balise div "map",
 // et position de la vue sur un point donné et un niveau de zoom
-var map = L.map('map').setView([45.775,4.83], 14);
+var map = L.map('map').setView([45.775, -102], 1.8);
 
 // Ajout d'une couche de dalles OpenStreetMap
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
