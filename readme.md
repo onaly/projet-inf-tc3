@@ -1,8 +1,11 @@
 ## Projet d'application web
 
-Projet inf TC3
-OK
-Onaly
-Ménard
-Li 
-Jia
+Projet D Inf TC3
+Groupe A2a
+
+Auteurs :
+
+-Tianqi Li
+-Hyacinthe Ménard 
+-Akilhoussen Onaly
+-Shicheng Jia
