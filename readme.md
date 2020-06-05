@@ -1,4 +1,4 @@
-## Projet d'application web
+## Projet d'application Web
 
 
 ### Projet D Inf TC3
@@ -7,7 +7,10 @@
 ### Auteurs :
 
 * Tianqi Li
-* Hyacinthe Ménard 
+* Hyacinthe MÃ©nard 
 * Akilhoussen Onaly
 * Shicheng Jia
+<<<<<<< HEAD
 
+=======
+>>>>>>> 69f3213b0adeb1b751500c4ddb1ae92c82704cdd
