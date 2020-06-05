@@ -5,7 +5,7 @@
 
 ### Auteurs :
 
-*Tianqi Li
-*Hyacinthe Ménard 
-*Akilhoussen Onaly
-*Shicheng Jia
+* Tianqi Li
+* Hyacinthe Ménard 
+* Akilhoussen Onaly
+* Shicheng Jia
