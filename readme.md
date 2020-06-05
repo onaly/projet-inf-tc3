@@ -1,11 +1,11 @@
 ## Projet d'application web
 
-Projet D Inf TC3
-Groupe A2a
+### Projet D Inf TC3
+### Groupe A2a
 
-Auteurs :
+### Auteurs :
 
--Tianqi Li
--Hyacinthe Ménard 
--Akilhoussen Onaly
--Shicheng Jia
+*Tianqi Li
+*Hyacinthe Ménard 
+*Akilhoussen Onaly
+*Shicheng Jia
