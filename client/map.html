@@ -55,7 +55,7 @@ function load_data () {
       // ajout d'une propriété personnalisée au marqueur
       L.marker([data[n].lat,data[n].lon]).addTo(map)
        .bindPopup('Lieu = '+data[n].name)
-       .addEventListener('click',OnMarkerClick)
+       .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
     }
   };
