@@ -40,6 +40,7 @@ a.delete:hover {
   color: red;
 }
 
+<<<<<<< HEAD
 #map{
     background-color: #ffffff;
     width: 70vw;
@@ -58,4 +59,39 @@ a.delete:hover {
     margin-left: 0px;
     position: relative;
     z-index:1;
+=======
+#map { height: 80vh; width: 60vw;
+   	  margin-left: 20vw;}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+main {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #444;
+  background: linear-gradient(0deg, #ffa50040, orange);
+}
+h1 {
+  margin-top: 0;
+  color: maroon;
+  font-family: Haettenschweiler;
+  text-shadow: 1px 1px white;
+}
+label {
+  display: block;
+  padding-bottom: 0.5em;
+}
+label span {
+  display: inline-block;
+  width : 5em;
+}
+
+div#col_info {
+	float: left;
+	width: 15vw;
+	
+>>>>>>> da4e77b291d1a98becdfcf037cd53afd95bfa5d6
 }
