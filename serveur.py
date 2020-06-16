@@ -89,13 +89,13 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     c = conn.cursor()
 
     # récupération de la liste des pays dans la base
-    c.execute("SELECT wp, name, latitude, longitude FROM countries")
+    c.execute("SELECT wp, common_name, latitude, longitude FROM countries")
     r = c.fetchall()
 
     # construction de la réponse
     data = []
     for a in r:
-       data.append({'id': a[0], 'lat':a[2],'lon':a[3], 'name': a[1]})
+       data.append({'id': a[0], 'lat':a[2],'lon':a[3], 'common_name': a[1]})
        print(data)
     # envoi de la réponse
     self.send_json(data)
@@ -125,7 +125,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
   def db_get_country(self,country):
     # préparation de la requête SQL
     c = conn.cursor()
-    sql = 'SELECT wp, name, latitude, longitude, capital from countries WHERE wp=?'
+    sql = 'SELECT * from countries WHERE wp=?'
 
     # récupération de l'information (ou pas)
     c.execute(sql,(country,))

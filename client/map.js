@@ -28,7 +28,7 @@ function load_data () {
       // attachement d'une popup, capture de l'événement 'clic'
       // ajout d'une propriété personnalisée au marqueur
       L.marker([data[n].lat,data[n].lon]).addTo(map)
-       .bindPopup(data[n].name)
+       .bindPopup(data[n].common_name)
        .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
     }
@@ -50,8 +50,8 @@ var bouton = document.querySelector("#bouton");
 bouton.onclick = function() {
   var textfield = document.querySelector("#textfield");
   var wp = document.getElementById("textfield").value;
-  update_data(wp)
-}
+  update_data(wp);
+};
 
 var update_data = function(idnum) {
 
@@ -71,7 +71,7 @@ var update_data = function(idnum) {
       var name = document.querySelector("#name");
 
       capital.innerHTML = data.capital;
-      name.innerHTML = data.name;
+      name.innerHTML = data.common_name;
       document.getElementById("country").innerHTML = data.wp;
       document.getElementById("latitude").innerHTML = data.latitude;
       document.getElementById("longitude").innerHTML = data.longitude;
@@ -89,4 +89,4 @@ var update_data = function(idnum) {
     xhr.open('GET','service/country/'+idnum,true);
     xhr.send();
 
-}
+};

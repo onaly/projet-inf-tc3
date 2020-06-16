@@ -54,30 +54,7 @@ a.delete:hover {
   color: red;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-#map{
-    background-color: #ffffff;
-    width: 70vw;
-    height: 70vh;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    z-index:0;
-    width: 50%;
-    margin: 1.33em auto;
-}
-#plan2{
-    background-color: #000000;
-    width: 200px;
-    height: 70vh;
-    margin-left: 0px;
-    position: relative;
-    z-index:1;
-=======
-#map { height: 80vh; width: 60vw;
-   	  margin-left: 20vw;}
-=======
+
 #map {
   height: 80vh;
   width: 60vw;
@@ -85,7 +62,6 @@ a.delete:hover {
   margin-right: 20vw;
   margin-bottom:1.33em;
 }
->>>>>>> 4f12ba72737c888680eead2ce37149170dc2a40a
 
 body {
   font-family: Roboto, sans-serif;
@@ -116,11 +92,6 @@ label span {
 div#col_left {
 	float: left;
 	width: 15vw;
-<<<<<<< HEAD
-	
->>>>>>> da4e77b291d1a98becdfcf037cd53afd95bfa5d6
-=======
-
 }
 
 div#col_right {
@@ -131,5 +102,4 @@ div#col_right {
 
 p {
   color: brown;
->>>>>>> 4f12ba72737c888680eead2ce37149170dc2a40a
 }

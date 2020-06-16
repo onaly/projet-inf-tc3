@@ -1,46 +1,48 @@
 <!DOCTYPE html>
+<html lang="en" dir="ltr">
 
+  <head>
+    <title>Map of North-America</title>
+    <link rel="stylesheet" type="text/css" href="leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 
-<title>Map of North-America</title>
-<link rel="stylesheet" type="text/css" href="leaflet.css" />
-<link rel="stylesheet" type="text/css" href="style.css"/>
+    <meta charset="utf-8">
+  </head>
 
-<meta charset="utf-8">
+  <!-- Récupération de la liste des lieux au chargement de la page -->
+  <body onload="load_data();">
 
-<!-- Récupération de la liste des lieux insolites au chargement de la page -->
-<body onload="load_data();">
+    <div>
 
-  <div>
+      <main>
 
-
-    <main>
-
-      <div id="col_left">
-        <h1>North American countries</h1>
-        <!-- formulaire -->
-        <div>
-        <label><span>Country :</span><input id="textfield" name="textfield"></label>
-        <label><span> </span> <button id="bouton">Search</button>
+        <div id="col_left">
+          <h1>North American countries</h1>
+          <!-- formulaire -->
+          <div>
+          <label><span>Country :</span><input id="textfield" name="textfield"></label>
+          <label><span> </span> <button id="bouton">Search</button>
+          </div>
         </div>
-      </div>
 
-      <div id="col_right">
-        <!-- Zone pour l'affichage dynamique des descriptions -->
-        <h2 id="name"></h2>
-        <p><b> Country: </b><i><span id="country"></span></i></p>
-        <p><b> Capital: </b><i><span id="capital"></span></i></p>
-        <p><b> Latitude: </b><i><span id="latitude"></span></i></p>
-        <p><b> Longitude: </b><i><span id="longitude"></span></i></p>
-      </div>
+        <div id="col_right">
+          <!-- Zone pour l'affichage dynamique des descriptions -->
+          <h2 id="name"></h2>
+          <p><b> Country: </b><i><span id="country"></span></i></p>
+          <p><b> Capital: </b><i><span id="capital"></span></i></p>
+          <p><b> Latitude: </b><i><span id="latitude"></span></i></p>
+          <p><b> Longitude: </b><i><span id="longitude"></span></i></p>
+        </div>
 
-      <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
-      <div id="map"></div>
+        <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
+        <div id="map"></div>
 
-    </main>
+      </main>
 
-  </div>
+    </div>
 
-  <script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
+    <script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
 
-  <script type="text/javascript" src="map.js"> </script>
- </body>
+    <script type="text/javascript" src="map.js"> </script>
+  </body>
+</html>
