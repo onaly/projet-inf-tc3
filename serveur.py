@@ -23,17 +23,9 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     # on récupère les paramètres
     self.init_params()
 
-    # le chemin d'accès commence par /time
-    if self.path.startswith('/time'):
-      self.send_time()
-
     # le chemin d'accès commence par /countries
-    elif self.path.startswith('/countries'):
+    if self.path.startswith('/countries'):
       self.send_countries()
-
-    # le chemin d'accès commence par /country et se poursuit par un nom de pays
-    elif self.path_info[0] == 'country' and len(self.path_info) > 1:
-      self.send_country(self.path_info[1])
 
     # le chemin d'accès commence par /service/country/...
     elif self.path_info[0] == 'service' and self.path_info[1] == 'country' and len(self.path_info) > 2:
@@ -64,7 +56,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     else:
         http.server.SimpleHTTPRequestHandler.do_GET(self)
 
-
   #
   # on analyse la requête pour initialiser nos paramètres
   #
@@ -92,27 +83,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
 
   #
-  # On envoie un document avec l'heure
-  #
-  def send_time(self):
-
-    # on récupère l'heure
-    time = self.date_time_string()
-
-    # on génère un document au format html
-    body = '<!doctype html>' + \
-           '<meta charset="utf-8">' + \
-           '<title>l\'heure</title>' + \
-           '<div>Voici l\'heure du serveur :</div>' + \
-           '<pre>{}</pre>'.format(time)
-
-    # pour prévenir qu'il s'agit d'une ressource au format html
-    headers = [('Content-Type','text/html;charset=utf-8')]
-
-    # on envoie
-    self.send(body,headers)
-
-  #
   # On renvoie la liste des pays
   #
   def send_countries(self):
@@ -125,44 +95,15 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
     r = c.fetchall()
 
     # construction de la réponse
-    txt = 'List of all {} countries :\n'.format(len(r))
     data = []
-    n = 0
     for a in r:
-       n += 1
-       txt = txt + '[{}] - {}\n'.format(n,a[1])
        data.append({'id': a[0], 'lat':a[2],'lon':a[3], 'name': a[1]})
        print(data)
     # envoi de la réponse
-    data2=[{'id':1,'lat':45.76843,'lon':4.82667,'name':"Rue Couverte"},
-          {'id':2,'lat':45.77128,'lon':4.83251,'name':"Rue Caponi"},
-          {'id':3,'lat':45.78061,'lon':4.83196,'name':"Jardin Rosa-Mir"}]
     self.send_json(data)
     #headers = [('Content-Type','text/plain;charset=utf-8')]
     #self.send(txt,headers)
 
-  #
-  # On renvoie les informations d'un pays
-  #
-  def send_country(self,countrywp):
-
-    # on récupère le pays depuis la base de données
-    r = self.db_get_country(countrywp)
-
-    # on n'a pas trouvé le pays demandé
-    if r == None:
-      self.send_error(404,'Country not found')
-
-
-    # on génère un document au format html
-    else:
-        data={}
-        a=r
-        data = {'id': a[0], 'name': a[1], 'capital':a[2]}
-        print(data)
-
-        # on envoie la réponse
-        self.send_json(data)
 
   #
   # On renvoie les informations d'un pays au format json
@@ -174,11 +115,11 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
 
     # on renvoie un dictionnaire
     data = {k:r[k] for k in r.keys()}
-    json_data = json.dumps(data, indent=4)
+    json_data = json.dumps(data)
 
     # on envoie la réponse
     headers = [('Content-Type','application/json')]
-    self.send(json_data,headers)
+    self.send(json_data, headers)
 
   #
   # Récupération d'un pays dans la base
@@ -186,7 +127,7 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
   def db_get_country(self,country):
     # préparation de la requête SQL
     c = conn.cursor()
-    sql = 'SELECT wp, name, capital from countries WHERE wp=?'
+    sql = 'SELECT wp, name, latitude, longitude, capital from countries WHERE wp=?'
 
     # récupération de l'information (ou pas)
     c.execute(sql,(country,))
