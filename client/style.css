@@ -26,6 +26,20 @@ h1 {
   margin-bottom: 1.33em;
 }
 
+h2.name {
+  color: white;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255,255,255,0.3);
+  border-top: 3px solid rgba(255,255,255,0.6);
+  border-bottom: 3px solid rgba(255,255,255,0.6);
+  margin-top: 1.33em;
+  text-shadow: 3px 3px 3px black;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1.33em;
+}
+
 /* contenu de la page */
 body > * {   padding-left: 10px; }
 
@@ -40,8 +54,13 @@ a.delete:hover {
   color: red;
 }
 
-#map { height: 80vh; width: 60vw;
-   	  margin-left: 20vw;}
+#map {
+  height: 80vh;
+  width: 60vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-bottom:1.33em;
+}
 
 body {
   font-family: Roboto, sans-serif;
@@ -69,8 +88,14 @@ label span {
   width : 5em;
 }
 
-div#col_info {
+div#col_left {
 	float: left;
 	width: 15vw;
-	
+
+}
+
+div#col_right {
+	float: right;
+	width: 15vw;
+
 }
