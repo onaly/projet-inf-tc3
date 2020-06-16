@@ -1,5 +1,4 @@
-## Projet d'application Web
-
+﻿## Projet d'application Web
 
 ### Projet D Inf TC3
 ### Groupe A2a
@@ -10,5 +9,3 @@
 * Hyacinthe Ménard 
 * Akilhoussen Onaly
 * Shicheng Jia
-
-
