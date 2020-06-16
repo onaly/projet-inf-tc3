@@ -1,98 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
 
-    <title>Map of North-America</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="style.css"/>
 
-    <meta charset="utf-8">
-  </head>
-    <!-- Récupération de la liste des lieux insolites au chargement de la page -->
-  <body onload="load_data();">
-      <h1>Map of North-America</h1>
-      <div>
-    <!--    <div class="container">
-          <div class="row">
-            <div class="col"> -->
-        <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
-        <div id="map" style="margin-bottom:1.33em"></div>
-        <!--   </div>
-         <div class="col">-->
+<title>Map of North-America</title>
+<link rel="stylesheet" type="text/css" href="leaflet.css" />
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+<meta charset="utf-8">
+
+<!-- Récupération de la liste des lieux insolites au chargement de la page -->
+<body onload="load_data();">
+
+  <div>
+
+
+    <main>
+
+      <div id="col_left">
+        <h1>North American countries</h1>
+        <!-- formulaire -->
+        <div>
+        <label><span>Country :</span><input id="textfield" name="textfield"></label>
+        <label><span> </span> <button id="bouton">Search</button>
+        </div>
+      </div>
+
+      <div id="col_right">
         <!-- Zone pour l'affichage dynamique des descriptions -->
-    <!--    <div id="plan2" class="plan2">
-          <p id="description"></p>
-        </div>
-      -->
-       <div class="card mb-3" id="plan2" style="max-width: 540px;">
-          <div class="col no-gutters">
-            <div class="row-md-4">
-              <img src="flags/algeria-150x100.png" class="card-img" alt="...">
-            </div>
-            <div class="row-md-8">
-              <div class="card-body">
-                <h5 class="card-title" id="desc_title">Card title</h5>
-                <p class="card-text" id="description">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-
-          <!--    </div> </div>  </div> -->
-            </div>
-          </div>
-        </div>
-
+        <h2 id="name"></h2>
+        <p><b> Country: </b><i><span id="country"></span></i></p>
+        <p><b> Capital: </b><i><span id="capital"></span></i></p>
+        <p><b> Latitude: </b><i><span id="latitude"></span></i></p>
+        <p><b> Longitude: </b><i><span id="longitude"></span></i></p>
       </div>
 
+      <!-- Zone pour l'insertion de la carte OSM via Leaflet -->
+      <div id="map"></div>
 
-        <!-- <div class="dropdown-menu">
-        <form class="px-4 py-3">
-          <div class="form-group">
-            <label for="exampleDropdownFormEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-          </div>
-          <div class="form-group">
-            <label for="exampleDropdownFormPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="dropdownCheck">
-              <label class="form-check-label" for="dropdownCheck">
-                Remember me
-              </label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </form>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">New around here? Sign up</a>
-        <a class="dropdown-item" href="#">Forgot password?</a>
-      </div>
-      -->
+    </main>
 
-    <!--  <div class="container">
-        <div class="row">
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-          <div class="col-sm">
-            One of three columns
-          </div>
-        </div>
-      </div>
--->
+  </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <script type="text/javascript" src="bootstrap.bundle.js"></script>
-      <script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
-      <script type="text/javascript" src="http://jquery.com/src/jquery-svn.js"></script>
-      <script type="text/javascript" src="map.js"></script>
-    </body>
+  <script src="leaflet.js"> // Bibliothèque Leaflet : http://leafletjs.com/ </script>
 
-
-
-</html>
+  <script type="text/javascript" src="map.js"> </script>
+ </body>
