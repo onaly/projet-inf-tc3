@@ -1,5 +1,3 @@
-# TD2-s9.py
-
 import http.server
 import socketserver
 import sqlite3
