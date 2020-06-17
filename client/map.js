@@ -96,7 +96,7 @@ var update_data = function(idnum) {
       html += "<p><b> Driving side: </b><i>"+data.drives_on+"</i></p>";
       html += "<p><b> Calling code: </b><i>"+data.calling_code+"</i></p>";
       html += "<p><b> Internet TLD: </b><i>"+data.cctld+"</i></p>";
-      html += "<p><b> Plus d'infos: </b><a href='https://en.wikipedia.org/wiki/"+data.wp+"'>Wikipedia</a></p>";
+      html += "<p><b> Plus d'infos: </b><a href='https://en.wikipedia.org/wiki/"+data.wp+"' target="_blank">Wikipedia</a></p>";
 
 
 
