@@ -35,6 +35,8 @@ h2.name {
   border-bottom: 3px solid rgba(255,255,255,0.6);
   margin-top: 1.33em;
   text-shadow: 3px 3px 3px black;
+  padding-left:0.5em;
+  padding-right:0.5em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 1.33em;
