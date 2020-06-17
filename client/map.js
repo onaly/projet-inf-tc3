@@ -17,6 +17,7 @@ function load_data () {
 
   // fonction appelée lorsque la réponse à la requête (liste des lieux insolites) sera arrivée
   xhr.onload = function() {
+    document.getElementById("select_country").innerHTML="";
 
     // transformation des données renvoyées par le serveur
     // responseText est du type string, data est une liste
@@ -31,6 +32,12 @@ function load_data () {
        .bindPopup(data[n].common_name)
        .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
+
+      var opt = document.createElement("option");
+      opt.setAttribute("value", data[n].id);
+      opt.innerHTML=data[n].common_name;
+      document.getElementById("select_country").appendChild(opt);
+      //"<option value=volvo>Volvo</option>
     }
   };
 
@@ -48,8 +55,8 @@ function OnMarkerClick (e) {
 var bouton = document.querySelector("#bouton");
 
 bouton.onclick = function() {
-  var textfield = document.querySelector("#textfield");
-  var wp = document.getElementById("textfield").value;
+  //var textfield = document.querySelector("#textfield");
+  var wp = document.getElementById("select_country").value;
   update_data(wp);
 };
 
