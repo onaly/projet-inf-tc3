@@ -67,14 +67,40 @@ var update_data = function(idnum) {
       console.log(data);
       // affichage dans la zone 'description' du nom (reprise dans le popup)
       // et de la description récupérée par l'appel au serveur
-      var capital = document.querySelector("#capital");
-      var name = document.querySelector("#name");
+      //var capital = document.querySelector("#capital");
+      //var name = document.querySelector("#name");
 
-      capital.innerHTML = data.capital;
-      name.innerHTML = data.common_name;
-      document.getElementById("country").innerHTML = data.wp;
-      document.getElementById("latitude").innerHTML = data.latitude;
-      document.getElementById("longitude").innerHTML = data.longitude;
+
+      html = "";
+      html += "<h2>"+data.long_name+"</h2>";
+      html += "<p><i>"+data.gov_type+"</i></p>";
+      html += "<img src='/flags/"+data.flag+"'></img>";
+      html += "<p><b> Country: </b><i>"+data.common_name+"</i></p>";
+      html += "<p><b> National motto: </b><i>"+data.motto+"</i></p>";
+      html += "<p><b> Capital: </b><i>"+data.capital+"</i></p>";
+      html += "<p><b> Latitude: </b><i>"+data.latitude+"</i></p>";
+      html += "<p><b> Longitude: </b><i>"+data.longitude+"</i></p>";
+      html += "<p><b> Official languages: </b><i>"+data.official_languages+"</i></p>";
+      html += "<p><b>"+data.leader_title+": </b><i>"+data.leader_name+"</i></p>";
+      html += "<p><b> Area: </b><i>"+data.area_km2+" km²</i></p>";
+      html += "<p><b> Popoulation ("+data.population_year+"): </b><i>"+data.population+"</i></p>";
+      html += "<p><b> HDI(2018): </b><i>"+data.hdi_2018+"</i></p>";
+      html += "<p><b> Currency: </b><i>"+data.currency+"</i></p>";
+      html += "<p><b> Driving side: </b><i>"+data.drives_on+"</i></p>";
+      html += "<p><b> Calling code: </b><i>"+data.calling_code+"</i></p>";
+      html += "<p><b> Internet TLD: </b><i>"+data.cctld+"</i></p>";
+      html += "<p><b> Plus d'info: </b><a href='https://en.wikipedia.org/wiki/"+data.wp+"'>Wikipedia</a></p>";
+
+
+
+      document.getElementById("description").innerHTML = html;
+
+
+      //capital.innerHTML = data.capital;
+      //name.innerHTML = data.common_name;
+      //document.getElementById("country").innerHTML = data.wp;
+      //document.getElementById("latitude").innerHTML = data.latitude;
+      //document.getElementById("longitude").innerHTML = data.longitude;
 
       map.flyTo([data.latitude, data.longitude], 5); // Centrage et zoom sur la ville (avec animation)
       //description.innerHTML = data.desc;

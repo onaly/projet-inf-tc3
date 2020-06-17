@@ -55,14 +55,6 @@ a.delete:hover {
 }
 
 
-#map {
-  height: 80vh;
-  width: 60vw;
-  margin-left: 20vw;
-  margin-right: 20vw;
-  margin-bottom:1.33em;
-}
-
 body {
   font-family: Roboto, sans-serif;
 }
@@ -73,6 +65,7 @@ main {
   border-radius: 5px;
   box-shadow: 3px 3px 3px #444;
   background: linear-gradient(0deg, #ffa50040, orange);
+  height: 90vh;
 }
 h1 {
   margin-top: 0;
@@ -87,6 +80,14 @@ label {
 label span {
   display: inline-block;
   width : 5em;
+}
+
+#map {
+  height: 95%;
+  width: 60vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  margin-bottom:1.33em;
 }
 
 div#col_left {
