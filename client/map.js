@@ -83,13 +83,13 @@ var update_data = function(idnum) {
       html += "<p><b> Official languages: </b><i>"+data.official_languages+"</i></p>";
       html += "<p><b>"+data.leader_title+": </b><i>"+data.leader_name+"</i></p>";
       html += "<p><b> Area: </b><i>"+data.area_km2+" km²</i></p>";
-      html += "<p><b> Popoulation ("+data.population_year+"): </b><i>"+data.population+"</i></p>";
+      html += "<p><b> Population ("+data.population_year+"): </b><i>"+data.population+"</i></p>";
       html += "<p><b> HDI(2018): </b><i>"+data.hdi_2018+"</i></p>";
       html += "<p><b> Currency: </b><i>"+data.currency+"</i></p>";
       html += "<p><b> Driving side: </b><i>"+data.drives_on+"</i></p>";
       html += "<p><b> Calling code: </b><i>"+data.calling_code+"</i></p>";
       html += "<p><b> Internet TLD: </b><i>"+data.cctld+"</i></p>";
-      html += "<p><b> Plus d'info: </b><a href='https://en.wikipedia.org/wiki/"+data.wp+"'>Wikipedia</a></p>";
+      html += "<p><b> Plus d'infos: </b><a href='https://en.wikipedia.org/wiki/"+data.wp+"'>Wikipedia</a></p>";
 
 
 
