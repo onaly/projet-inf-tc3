@@ -17,6 +17,7 @@ function load_data () {
 
   // fonction appelée lorsque la réponse à la requête (liste des lieux insolites) sera arrivée
   xhr.onload = function() {
+    document.getElementById("select_country").innerHTML="";
 
     // transformation des données renvoyées par le serveur
     // responseText est du type string, data est une liste
@@ -31,6 +32,12 @@ function load_data () {
        .bindPopup(data[n].common_name)
        .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
+
+      var opt = document.createElement("option");
+      opt.setAttribute("value", data[n].id);
+      opt.innerHTML=data[n].common_name;
+      document.getElementById("select_country").appendChild(opt);
+      //"<option value=volvo>Volvo</option>
     }
   };
 
@@ -48,8 +55,8 @@ function OnMarkerClick (e) {
 var bouton = document.querySelector("#bouton");
 
 bouton.onclick = function() {
-  var textfield = document.querySelector("#textfield");
-  var wp = document.getElementById("textfield").value;
+  //var textfield = document.querySelector("#textfield");
+  var wp = document.getElementById("select_country").value;
   update_data(wp);
 };
 
@@ -74,12 +81,12 @@ var update_data = function(idnum) {
       html = "";
       html += "<h2>"+data.long_name+"</h2>";
       html += "<p><i>"+data.gov_type+"</i></p>";
-      html += "<img src='/flags/"+data.flag+"'></img>";
+      html += "<img style='width:100%;' src='/flags/"+data.flag+"'></img>";
       html += "<p><b> Country: </b><i>"+data.common_name+"</i></p>";
       html += "<p><b> National motto: </b><i>"+data.motto+"</i></p>";
       html += "<p><b> Capital: </b><i>"+data.capital+"</i></p>";
-      html += "<p><b> Latitude: </b><i>"+data.latitude+"</i></p>";
-      html += "<p><b> Longitude: </b><i>"+data.longitude+"</i></p>";
+      html += "<p><b> Latitude: </b><i>"+Math.round(data.latitude*100)/100+"</i></p>";
+      html += "<p><b> Longitude: </b><i>"+Math.round(data.longitude*100)/100+"</i></p>";
       html += "<p><b> Official languages: </b><i>"+data.official_languages+"</i></p>";
       html += "<p><b>"+data.leader_title+": </b><i>"+data.leader_name+"</i></p>";
       html += "<p><b> Area: </b><i>"+data.area_km2+" km²</i></p>";
