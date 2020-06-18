@@ -33,7 +33,7 @@ h2.name {
   background-color: rgba(255,255,255,0.3);
   border-top: 3px solid rgba(255,255,255,0.6);
   border-bottom: 3px solid rgba(255,255,255,0.6);
-  margin-top: 1.33em;
+  margin-top: .3em;
   text-shadow: 3px 3px 3px black;
   padding-left:0.5em;
   padding-right:0.5em;
@@ -94,7 +94,7 @@ label span {
 
 div#col_left {
 	float: left;
-	width: 15vw;
+	width: 17vw;
 }
 
 div#col_right {

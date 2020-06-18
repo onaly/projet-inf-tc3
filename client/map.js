@@ -112,7 +112,7 @@ var update_data = function(idnum) {
       //document.getElementById("latitude").innerHTML = data.latitude;
       //document.getElementById("longitude").innerHTML = data.longitude;
 
-      map.flyTo([data.latitude, data.longitude], 5); // Centrage et zoom sur la ville (avec animation)
+      map.flyTo([data.latitude, data.longitude], Math.max(map.getZoom(), 5)); // Centrage et zoom sur la ville (avec animation)
       //description.innerHTML = data.desc;
       //name.innerHTML = e.target.getPopup().getContent();
 
