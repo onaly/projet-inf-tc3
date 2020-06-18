@@ -29,7 +29,7 @@ function load_data () {
       // attachement d'une popup, capture de l'événement 'clic'
       // ajout d'une propriété personnalisée au marqueur
       L.marker([data[n].lat,data[n].lon]).addTo(map)
-       .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+", "+ Math.round(data[n].lon*100)/100+")")
+       .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+"; "+ Math.round(data[n].lon*100)/100+")")
        .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
 
