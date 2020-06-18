@@ -29,7 +29,7 @@ function load_data () {
       // attachement d'une popup, capture de l'événement 'clic'
       // ajout d'une propriété personnalisée au marqueur
       L.marker([data[n].lat,data[n].lon]).addTo(map)
-       .bindPopup(data[n].common_name)
+       .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+", "+ Math.round(data[n].lon*100)/100+")")
        .addEventListener('click', OnMarkerClick)
        .idnum = data[n].id;
 
@@ -77,16 +77,19 @@ var update_data = function(idnum) {
       //var capital = document.querySelector("#capital");
       //var name = document.querySelector("#name");
 
-
-      html = "";
+      html="";
       html += "<h2>"+data.long_name+"</h2>";
       html += "<p><i>"+data.gov_type+"</i></p>";
       html += "<img style='width:100%;' src='/flags/"+data.flag+"'></img>";
       html += "<p><b> Country: </b><i>"+data.common_name+"</i></p>";
-      html += "<p><b> National motto: </b><i>"+data.motto+"</i></p>";
       html += "<p><b> Capital: </b><i>"+data.capital+"</i></p>";
-      html += "<p><b> Latitude: </b><i>"+Math.round(data.latitude*100)/100+"</i></p>";
-      html += "<p><b> Longitude: </b><i>"+Math.round(data.longitude*100)/100+"</i></p>";
+
+      document.getElementById("description_left").innerHTML = html;
+
+
+
+      html = "";
+      html += "<p><b> National motto: </b><i>"+data.motto+"</i></p>";
       html += "<p><b> Official languages: </b><i>"+data.official_languages+"</i></p>";
       html += "<p><b>"+data.leader_title+": </b><i>"+data.leader_name+"</i></p>";
       html += "<p><b> Area: </b><i>"+data.area_km2+" km²</i></p>";
@@ -100,7 +103,7 @@ var update_data = function(idnum) {
 
 
 
-      document.getElementById("description").innerHTML = html;
+      document.getElementById("description_right").innerHTML = html;
 
 
       //capital.innerHTML = data.capital;

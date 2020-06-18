@@ -17,20 +17,25 @@
       <main>
 
         <div id="col_left">
-          <h1>North American countries</h1>
-          <!-- formulaire -->
-          <div>
-          <!--  <label><span>Country :</span><input id="textfield" name="textfield"></label>-->
-          <label for="select_country">Choose a country:</label>
-          <select name="select_country" id="select_country"> </select>
-          <label><span> </span> <button id="bouton">Show information</button>
+          <div class="presentation">
+            <h1>North American countries</h1>
+            <!-- formulaire -->
+            <div>
+              <!--  <label><span>Country :</span><input id="textfield" name="textfield"></label>-->
+              <label for="select_country">Choose a country:</label>
+              <select name="select_country" id="select_country"> </select>
+              <label><span> </span> <button id="bouton">Search</button>
+            </div>
+          </div>
+          <div class="description" id="description_left">
+
           </div>
         </div>
 
-        <div id="col_right">
+        <div id="col_right" class="description">
           <!-- Zone pour l'affichage dynamique des descriptions -->
           <h2 id="name"></h2>
-          <div id="description">
+          <div id="description_right">
 
           </div>
         </div>
