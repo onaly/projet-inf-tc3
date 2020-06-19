@@ -53,7 +53,8 @@ main {
   border-radius: 5px;
   box-shadow: 3px 3px 3px #444;
   background-color: #ACACAC;
-  height: 90vh;
+  height: fit-content;
+  display:flow-root;
 }
 h1 {
   margin-top: 0;
@@ -61,6 +62,7 @@ h1 {
   border-radius: 5px;
   font-family: Haettenschweiler;
   text-shadow: 1px 1px white;
+  text-align: center;
 }
 label {
   display: block;
@@ -73,7 +75,7 @@ label span {
 }
 
 #map {
-  height: 95%;
+  height: 50em;
   margin-left: 20vw;
   margin-right: 20vw;
   border-radius: 5px;
