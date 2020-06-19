@@ -31,7 +31,7 @@ function load_data () {
       // attachement d'une popup, capture de l'événement 'clic'
       // ajout d'une propriété personnalisée au marqueur
       var myIcon = L.icon({
-          iconUrl: 'images/marker-icon-red.png',
+          iconUrl: 'images/marker-icon-grey.png',
           iconSize: [25, 41],
           iconAnchor: [12, 41],
           shadowUrl: 'images/marker-shadow.png'
@@ -66,10 +66,11 @@ function load_data () {
 
 // Fonction appelée lors d'un clic sur un marqueur
 function OnMarkerClick (e) {
+  document.getElementById("select_country").value=e.target.idnum;
   console.log(e.target);
   update_data(e.target.idnum);
   e.target.setIcon(L.icon({
-      iconUrl: 'images/marker-icon-green.png',
+      iconUrl: 'images/marker-icon-red.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
        popupAnchor: [0, -41],
@@ -80,7 +81,7 @@ function OnMarkerClick (e) {
 function OnPopUpClose(e){
   console.log(e.target);
   e.target.setIcon(L.icon({
-      iconUrl: 'images/marker-icon-orange.png',
+      iconUrl: 'images/marker-icon-grey.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
        popupAnchor: [0, -41],
@@ -100,7 +101,7 @@ bouton.onclick = function() {
     console.log(m.idnum);
     update_data(m.idnum);
     m.openPopup().setIcon(L.icon({
-        iconUrl: 'images/marker-icon-grey.png',
+        iconUrl: 'images/marker-icon-red.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
         popupAnchor: [0, -41],
