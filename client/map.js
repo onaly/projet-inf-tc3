@@ -3,6 +3,8 @@
 var map = L.map('map').setView([45.775, -102], 2.8);
 map.setMaxBounds(map.getBounds()).setMinZoom(2.8).setZoom(3);
 
+markers=[];
+
 // Ajout d'une couche de dalles OpenStreetMap
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -28,16 +30,32 @@ function load_data () {
       // insertion d'un marqueur à la position du lieu,
       // attachement d'une popup, capture de l'événement 'clic'
       // ajout d'une propriété personnalisée au marqueur
-      L.marker([data[n].lat,data[n].lon]).addTo(map)
-       .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+"; "+ Math.round(data[n].lon*100)/100+")")
-       .addEventListener('click', OnMarkerClick)
-       .idnum = data[n].id;
+      var myIcon = L.icon({
+          iconUrl: 'images/marker-icon-red.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          shadowUrl: 'images/marker-shadow.png'
+      });
+
+
+
+    /*  markers.push(  L.marker([data[n].lat,data[n].lon], {icon: myIcon}).addTo(map)
+         .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+"; "+ Math.round(data[n].lon*100)/100+")")
+         .addEventListener('click', OnMarkerClick)
+         .addEventListener('popupclose', OnPopUpClose)
+         .idnum = data[n].id);
+*/
+     markers.push(  L.marker([data[n].lat,data[n].lon], {icon: myIcon}).addTo(map)
+        .bindPopup(data[n].common_name+ "\n ("+ Math.round(data[n].lat*100)/100+"; "+ Math.round(data[n].lon*100)/100+")")
+        .addEventListener('click', OnMarkerClick)
+        .addEventListener('popupclose', OnPopUpClose));
+
+      markers[markers.length-1].idnum = data[n].id;
 
       var opt = document.createElement("option");
       opt.setAttribute("value", data[n].id);
       opt.innerHTML=data[n].common_name;
       document.getElementById("select_country").appendChild(opt);
-      //"<option value=volvo>Volvo</option>
     }
   };
 
@@ -48,8 +66,26 @@ function load_data () {
 
 // Fonction appelée lors d'un clic sur un marqueur
 function OnMarkerClick (e) {
+  console.log(e.target);
   update_data(e.target.idnum);
+  e.target.setIcon(L.icon({
+      iconUrl: 'images/marker-icon-green.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+       popupAnchor: [0, -41],
+      shadowUrl: 'images/marker-shadow.png'
+  }));
+}
 
+function OnPopUpClose(e){
+  console.log(e.target);
+  e.target.setIcon(L.icon({
+      iconUrl: 'images/marker-icon-orange.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+       popupAnchor: [0, -41],
+      shadowUrl: 'images/marker-shadow.png'
+  }));
 }
 
 var bouton = document.querySelector("#bouton");
@@ -57,7 +93,21 @@ var bouton = document.querySelector("#bouton");
 bouton.onclick = function() {
   //var textfield = document.querySelector("#textfield");
   var wp = document.getElementById("select_country").value;
-  update_data(wp);
+  var m=markers.find((m)=>{return m.idnum==wp});
+  console.log(m);
+  if (m) {
+    console.log("btnclick");
+    console.log(m.idnum);
+    update_data(m.idnum);
+    m.openPopup().setIcon(L.icon({
+        iconUrl: 'images/marker-icon-grey.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [0, -41],
+        shadowUrl: 'images/marker-shadow.png'
+    }));
+  }
+//  update_data(wp);
 };
 
 var update_data = function(idnum) {
@@ -85,7 +135,6 @@ var update_data = function(idnum) {
       html += "<p><b> Capital: </b><i>"+data.capital+"</i></p>";
 
       document.getElementById("description_left").innerHTML = html;
-
 
 
       html = "";

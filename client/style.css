@@ -71,7 +71,7 @@ label span {
 }
 
 #map {
-  height: 95%;
+  height: 90vh;
   margin-left: 20vw;
   margin-right: 20vw;
   margin-bottom:1.33em;
