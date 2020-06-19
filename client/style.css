@@ -73,7 +73,11 @@ label span {
 }
 
 #map {
+<<<<<<< HEAD
   height: 95%;
+=======
+  height: 90vh;
+>>>>>>> d188cc06d9e04933fbec9c2090366610c13d4871
   margin-left: 20vw;
   margin-right: 20vw;
   border-radius: 5px;
